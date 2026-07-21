@@ -21,7 +21,7 @@ export function Header() {
       <div className="container-page flex h-20 items-center justify-between gap-4">
         <Link href="/" className="flex shrink-0 items-center rounded-md bg-white px-3 py-2">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/titan-logo.png" alt="Titan OEM" className="h-14 w-auto" />
+          <img src="/logo/titan-logo.png" alt="Titan OEM" className="h-14 w-auto" />
         </Link>
 
         <div className="flex items-center gap-6">
