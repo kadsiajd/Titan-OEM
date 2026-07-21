@@ -7,10 +7,10 @@ const raleway = Raleway({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'OEM Product Catalog',
+    default: 'Product Catalog',
     template: '%s | OEM Product Catalog',
   },
-  description: 'Browses our complete OEM product catalog and inventory solutions.',
+  description: 'Browse our complete OEM product catalog and inventory solutions.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
