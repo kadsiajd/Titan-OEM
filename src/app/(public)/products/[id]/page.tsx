@@ -54,7 +54,6 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
       <div className="grid gap-10 lg:grid-cols-2">
         <div className="aspect-square overflow-hidden rounded-lg bg-gray-100">
           {product.imageUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element
             <img
               src={product.imageUrl}
               alt={product.name}
