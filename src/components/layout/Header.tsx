@@ -18,12 +18,9 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
-      <div className="mx-auto flex h-[72px] max-w-[1440px] items-center px-4 sm:h-20 sm:px-8 lg:px-12">
+      <div className="container-page flex h-[72px] items-center sm:h-20">
         {/* Logo */}
-        <Link
-          href="/"
-          className="flex h-full items-center border-r border-slate-200 pr-5 sm:pr-8 lg:pr-10"
-        >
+        <Link href="/" className="flex h-full items-center">
           <div className="flex items-center bg-white">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -49,7 +46,7 @@ export function Header() {
           ))}
 
           <Link
-            href="#"
+            href="/contact-us"
             className="ml-4 flex items-center gap-2 bg-teal-500 px-5 py-3 text-[11px] font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-teal-500/90 xl:ml-6"
           >
            Contact Us
@@ -96,7 +93,7 @@ export function Header() {
           ))}
 
           <Link
-            href="#"
+            href="/contact-us"
             onClick={() => setIsMobileMenuOpen(false)}
             className="mt-4 flex items-center justify-center gap-2 bg-teal-500 px-5 py-3 text-xs font-semibold uppercase tracking-widest text-white transition hover:bg-teal-500/90"
           >

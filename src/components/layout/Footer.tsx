@@ -74,7 +74,7 @@ function BrandColumn() {
           alt="TITAN Company"
           width={360}
           height={144}
-          className="h-auto w-48 object-contain sm:w-64 lg:w-80"
+          className="h-auto w-28 object-contain sm:w-36 lg:w-44"
         />
       </Link>
 
