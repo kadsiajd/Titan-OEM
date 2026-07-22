@@ -8,7 +8,7 @@ export default function AboutHero() {
       id="hero"
       className="relative overflow-hidden bg-white text-slate-900"
     >
-      <div className="mx-auto max-w-7xl px-5 py-8 sm:px-8 sm:py-12 lg:px-12 lg:py-16">
+      <div className="mx-auto max-w-8xl px-5 py-8 sm:px-8 sm:py-12 lg:px-12 lg:py-16">
         {/* Top label */}
         {/* <div className="mb-8 flex items-center justify-between border-b border-teal-500/30 pb-5 sm:mb-12">
           <div className="flex items-center gap-3">
@@ -46,32 +46,7 @@ export default function AboutHero() {
             <p className="mt-7 max-w-lg text-sm leading-7 text-slate-500 sm:text-base sm:leading-8">
               {aboutData.hero.description}
             </p>
-
-            {/* Bottom information */}
-            <div className="mt-10 grid max-w-lg grid-cols-2 border-y border-slate-200">
-              <div className="border-r border-slate-200 py-5 pr-5">
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-teal-500">
-                  Expertise
-                </p>
-
-                <p className="mt-2 text-sm font-medium text-slate-800">
-                  OEM Manufacturing
-                </p>
-              </div>
-
-              <div className="py-5 pl-5">
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-teal-500">
-                  Approach
-                </p>
-
-                <p className="mt-2 text-sm font-medium text-slate-800">
-                  Innovation Driven
-                </p>
-              </div>
-            </div>
-
-            {/* Explore button */}
-            <button
+              <button
               type="button"
               className="group mt-8 inline-flex items-center gap-3 border border-teal-500 px-5 py-3 text-xs font-semibold uppercase tracking-[0.15em] text-teal-500 transition-all duration-300 hover:bg-teal-500 hover:text-white"
             >
@@ -83,6 +58,32 @@ export default function AboutHero() {
                 className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               />
             </button>
+
+            {/* Bottom information */}
+            <div className="mt-10 grid max-w-lg grid-cols-2 border-y border-slate-200">
+              <div className="border-r border-slate-200 py-5 pr-5">
+                <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-teal-500">
+                  Expertise
+                </p>
+
+                <p className="mt-2 text-sm font-medium text-slate-800">
+                  OEM Manufacturing
+                </p>
+              </div>
+
+              <div className="py-5 pl-5">
+                <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-teal-500">
+                  Approach
+                </p>
+
+                <p className="mt-2 text-sm font-medium text-slate-800">
+                  Innovation Driven
+                </p>
+              </div>
+            </div>
+
+            {/* Explore button */}
+          
           </div>
 
           {/* RIGHT — Image */}
@@ -102,14 +103,14 @@ export default function AboutHero() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent" />
 
               {/* Image label */}
-              <div className="absolute bottom-5 left-5 flex items-center gap-3 sm:bottom-7 sm:left-7">
-                <div className="bg-teal-500" >
-                <span className="h-px w-8 bg-teal-900" />
+              <div className="absolute bottom-5 left-5 sm:bottom-7 sm:left-7">
+                <div className="flex items-center gap-3 bg-teal-500 px-4 py-2.5">
+                  {/* <span className="h-px w-8 shrink-0 bg-teal-900" /> */}
 
-                <span className="font-mono text-[10px]  font-semibold uppercase tracking-[0.2em] text-white">
-                  Manufacturing Excellence
-                </span>
-              </div>
+                  <span className="font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-white">
+                    Manufacturing Excellence
+                  </span>
+                </div>
               </div>
             </div>
 

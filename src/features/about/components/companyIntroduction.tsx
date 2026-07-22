@@ -23,13 +23,13 @@ const highlights = [
 export default function CompanyOverview() {
   return (
     <section id="company" className="bg-white py-16 sm:py-20 lg:py-28">
-      <div className="mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-12">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16 xl:gap-24">
           {/* LEFT — Text */}
           <div>
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-teal-500" />
-              <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-teal-500">
+              <p className="font-mono text-[15px] font-semibold uppercase tracking-[0.3em] text-teal-500">
                 Company Overview
               </p>
             </div>
@@ -75,7 +75,7 @@ export default function CompanyOverview() {
           </div>
 
           {/* RIGHT — Image */}
-          <div className="relative aspect-[4/3] w-full overflow-hidden sm:aspect-[16/11]">
+          {/* <div className="relative aspect-[4/3] w-full overflow-hidden sm:aspect-[16/11]">
             <Image
               src={aboutData.company?.image}
               alt="Precision manufactured components"
@@ -85,7 +85,49 @@ export default function CompanyOverview() {
             />
 
             <span className="pointer-events-none absolute right-3 top-3 h-6 w-6 border-r-2 border-t-2 border-teal-500 sm:right-4 sm:top-4" />
-          </div>
+            <span className="pointer-events-none absolute left-3 bottom-3 h-6 w-6 border-r-2 border-t-2 border-teal-500 sm:left-4 sm:top-4" />
+
+          </div> */}
+           <div className="relative">
+                      {/* Image frame */}
+                      <div className="relative aspect-[4/3] overflow-hidden sm:aspect-[16/10]">
+                        <Image
+                          src={aboutData.company.image}
+                          alt="Titan OEM Manufacturing Facility"
+                          fill
+                          priority
+                          sizes="(max-width: 1024px) 100vw, 60vw"
+                          className="object-cover transition-transform duration-700 hover:scale-[1.03]"
+                        />
+          
+                        {/* Subtle overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent" />
+          
+                        {/* Image label */}
+                        <div className="absolute bottom-5 left-5 sm:bottom-7 sm:left-7">
+                          <div className="flex items-center gap-3 bg-teal-500 px-4 py-2.5">
+                            {/* <span className="h-px w-8 shrink-0 bg-teal-900" /> */}
+          
+                            <span className="font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-white">
+                              Trusted Manufacturing
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+          
+                      {/* Teal accent border */}
+                      <div className="absolute -bottom-3 -right-3 -z-0 h-24 w-24 border-b border-r border-teal-500 sm:-bottom-5 sm:-right-5 sm:h-32 sm:w-32" />
+          
+                      {/* Top corner marker */}
+                      <div className="absolute -left-3 -top-3 h-12 w-12 border-l border-t border-teal-500 sm:-left-5 sm:-top-5 sm:h-16 sm:w-16" />
+          
+                      {/* Floating number */}
+                      {/* <div className="absolute right-4 top-4 flex h-12 w-12 items-center justify-center border border-white/50 bg-white/90 backdrop-blur-sm sm:right-6 sm:top-6 sm:h-14 sm:w-14">
+                        <span className="font-mono text-xs font-bold text-teal-500">
+                          01
+                        </span>
+                      </div> */}
+                    </div>
         </div>
       </div>
     </section>
