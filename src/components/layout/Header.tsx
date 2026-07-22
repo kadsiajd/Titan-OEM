@@ -2,19 +2,27 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 
 const NAV_LINKS = [
   { label: 'Home', href: '/' },
-  { label: 'Products', href: '/' },
+  { label: 'Products', href: '/products' },
   { label: 'Tool Room', href: '#' },
-  { label: 'Technical Information', href: '#' },
+  { label: 'Technical Information', href: '/#' },
   { label: 'About Us', href: '/about' },
   // { label: 'Contact Us', href: '#' },
 ];
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isLinkActive = (href: string) => {
+    if (href === '#' || href === '/#') return false; // placeholder links never "active"
+    if (href === '/') return pathname === '/';
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
@@ -33,17 +41,28 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <nav className="ml-auto hidden items-center lg:flex">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="group relative flex h-20 items-center px-3 text-[13px] font-medium tracking-wide text-slate-600 transition-colors duration-300 hover:text-teal-500 xl:px-4"
-            >
-              {link.label}
+          {NAV_LINKS.map((link) => {
+            const active = isLinkActive(link.href);
 
-              <span className="absolute bottom-0 left-3 right-3 h-[2px] origin-left scale-x-0 bg-teal-500 transition-transform duration-300 group-hover:scale-x-100" />
-            </Link>
-          ))}
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                aria-current={active ? 'page' : undefined}
+                className={`group relative flex h-20 items-center px-3 text-[13px] font-medium tracking-wide transition-colors duration-300 hover:text-teal-500 xl:px-4 ${
+                  active ? 'text-teal-500' : 'text-slate-600'
+                }`}
+              >
+                {link.label}
+
+                <span
+                  className={`absolute bottom-0 left-3 right-3 h-[2px] origin-left bg-teal-500 transition-transform duration-300 group-hover:scale-x-100 ${
+                    active ? 'scale-x-100' : 'scale-x-0'
+                  }`}
+                />
+              </Link>
+            );
+          })}
 
           <Link
             href="/contact-us"
@@ -79,18 +98,25 @@ export function Header() {
         }`}
       >
         <nav className="px-4 py-3 sm:px-8">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center justify-between border-b border-slate-100 py-4 text-sm font-medium text-slate-600 transition hover:text-teal-500"
-            >
-              {link.label}
+          {NAV_LINKS.map((link) => {
+            const active = isLinkActive(link.href);
 
-              <ArrowUpRight className="h-4 w-4 text-teal-500" />
-            </Link>
-          ))}
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                aria-current={active ? 'page' : undefined}
+                className={`flex items-center justify-between border-b border-slate-100 py-4 text-sm font-medium transition hover:text-teal-500 ${
+                  active ? 'text-teal-500' : 'text-slate-600'
+                }`}
+              >
+                {link.label}
+
+                <ArrowUpRight className="h-4 w-4 text-teal-500" />
+              </Link>
+            );
+          })}
 
           <Link
             href="/contact-us"
