@@ -4,7 +4,7 @@ export function ContactHero() {
   return (
     <section className="relative overflow-hidden bg-gray-900">
       <div className="flex h-[420px] sm:h-[480px]">
-        <div className="relative z-10 flex w-[78%] shrink-0 flex-col justify-center pl-6 sm:w-[380px] sm:pl-8 lg:w-[460px] lg:pl-[calc((100vw-1600px)/2+2rem)]">
+        <div className="relative z-10 flex w-[85%] shrink-0 flex-col justify-center pl-6 sm:w-[440px] sm:pl-8 lg:w-[540px] lg:pl-12 xl:w-[620px] xl:pl-16">
           <h1 className="text-4xl font-bold text-white sm:text-5xl">
             {contactHeroContent.heading}
           </h1>
