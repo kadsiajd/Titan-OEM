@@ -6,12 +6,12 @@ const icons = [Flag, Settings, Users, Award, TrendingUp];
 export default function HistoryHeritage() {
   return (
     <section id="history" className="bg-slate-50 py-16 sm:py-20 lg:py-28">
-      <div className="mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="text-center">
           <div className="mx-auto flex items-center justify-center gap-3">
             <span className="h-px w-8 bg-teal-500" />
-            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-teal-500">
+            <p className="font-mono text-[12px] font-semibold uppercase tracking-[0.3em] text-teal-500">
               History &amp; Heritage
             </p>
             <span className="h-px w-8 bg-teal-500" />
