@@ -6,7 +6,7 @@ export default function AboutHero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-white text-slate-900"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-white text-slate-900"
     >
       <div className="mx-auto max-w-8xl px-5 py-8 sm:px-8 sm:py-12 lg:px-12 lg:py-16">
 

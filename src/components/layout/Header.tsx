@@ -10,9 +10,9 @@ import type { Category } from '../../features/home/types/category.types';
 
 const NAV_LINKS = [
   { label: 'Home', href: '/' },
-  { label: 'Products', href: '' },
-  { label: 'Tool Room', href: '#' },
-  { label: 'Technical Information', href: '/#' },
+  { label: 'Products', href: '/' },
+  { label: 'Tool Room', href: '/tool-room' },
+  { label: 'Technical Information', href: '#' },
   { label: 'About Us', href: '/about' },
 ];
 

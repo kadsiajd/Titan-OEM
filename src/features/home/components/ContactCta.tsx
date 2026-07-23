@@ -4,7 +4,7 @@ import { contactCtaContent } from '@/mocks/mock-home';
 
 export function ContactCta() {
   return (
-    <section className="bg-white py-16">
+    <section className="flex min-h-screen items-center bg-white py-16">
       <div className="container-page">
         <div className="grid overflow-hidden rounded-2xl bg-gray-50 lg:grid-cols-2">
           <div className="relative h-64 lg:h-auto">

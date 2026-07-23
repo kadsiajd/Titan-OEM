@@ -22,8 +22,8 @@ const highlights = [
 
 export default function CompanyOverview() {
   return (
-    <section id="company" className="bg-white py-16 sm:py-20 lg:py-28">
-      <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-12">
+    <section id="company" className="flex min-h-screen flex-col justify-center bg-white py-16 sm:py-20 lg:py-28">
+      <div className="mx-auto w-full max-w-[1200px] px-5 sm:px-8 lg:px-12">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16 xl:gap-24">
           {/* LEFT — Text */}
           <div>

@@ -3,7 +3,7 @@ import { getInTouchContent } from '@/mocks/mock-contact';
 
 export function GetInTouch() {
   return (
-    <section className="bg-white py-16">
+    <section className="flex min-h-screen items-center bg-white py-16">
       <div className="container-page grid gap-10 lg:grid-cols-[1fr_2fr]">
         <div>
           <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">

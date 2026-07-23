@@ -63,11 +63,8 @@ export default function Customers() {
   const durationSeconds = Math.max(customers.length * 3, 15);
 
   return (
-    <section
-      id="customers"
-      className="bg-white py-16 sm:py-20 lg:py-28"
-    >
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
+    <section id="customers" className="flex min-h-screen flex-col justify-center bg-white py-16 sm:py-20 lg:py-28">
+      <div className="mx-auto w-full max-w-[1200px] px-5 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="text-center">
           <p className="font-mono text-[12px] font-semibold uppercase tracking-[0.3em] text-[#00b2ad]">

@@ -5,12 +5,22 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Building2, Mail, MessageSquare, Phone, Send, Shield, User } from 'lucide-react';
+import { useSubmitEnquiry } from '../hooks/useSubmitEnquiry';
 
 const enquirySchema = z.object({
-  name: z.string().min(1, 'Name is required'),
+  name: z
+    .string()
+    .min(1, 'Name is required')
+    .regex(/^[A-Za-z\s]+$/, 'Name must contain only letters'),
   company: z.string().min(1, 'Company name is required'),
   email: z.string().min(1, 'Email is required').email('Enter a valid email address'),
-  phone: z.string().optional(),
+  phone: z
+    .string()
+    .optional()
+    .refine(
+      (val) => !val || (/^\+?[0-9\s()-]+$/.test(val) && /\d/.test(val)),
+      'Enter a valid phone number',
+    ),
   message: z.string().optional(),
 });
 
@@ -18,25 +28,30 @@ type EnquiryFormValues = z.infer<typeof enquirySchema>;
 
 export function BusinessEnquiryForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { mutateAsync, isPending, isError } = useSubmitEnquiry();
 
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<EnquiryFormValues>({
     resolver: zodResolver(enquirySchema),
+    mode: 'onChange',
   });
 
-  async function onSubmit() {
-    // No SMTP integration yet — simulate submission until the backend endpoint exists.
-    await new Promise((resolve) => setTimeout(resolve, 600));
-    setIsSubmitted(true);
-    reset();
+  async function onSubmit(values: EnquiryFormValues) {
+    try {
+      await mutateAsync(values);
+      setIsSubmitted(true);
+      reset();
+    } catch {
+      // isError from useSubmitEnquiry already drives the visible error message below
+    }
   }
 
   return (
-    <section className="bg-gray-50 py-16">
+    <section className="flex min-h-screen items-center bg-gray-50 py-16">
       <div className="container-page grid gap-10 lg:grid-cols-[1fr_1.4fr]">
         <div>
           <span className="block h-1 w-12 bg-brand-600" />
@@ -57,7 +72,7 @@ export function BusinessEnquiryForm() {
           <div className="mt-8 overflow-hidden rounded-lg">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/contact-us/enquiry.jpg"
+              src="/enquiry.jpg"
               alt="Precision manufactured components"
               className="h-48 w-full object-cover"
             />
@@ -141,6 +156,9 @@ export function BusinessEnquiryForm() {
                         className="w-full rounded-md border border-gray-300 py-2.5 pl-10 pr-3 text-sm focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-600"
                       />
                     </div>
+                    {errors.phone && (
+                      <p className="mt-1 text-xs text-red-600">{errors.phone.message}</p>
+                    )}
                   </div>
                 </div>
 
@@ -154,13 +172,19 @@ export function BusinessEnquiryForm() {
                   />
                 </div>
 
+                {isError && (
+                  <p className="mt-4 text-sm text-red-600">
+                    Something went wrong submitting your enquiry. Please try again.
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isPending}
                   className="mt-6 inline-flex items-center gap-2 rounded-md bg-brand-600 px-6 py-3 text-sm font-semibold text-white hover:bg-brand-700 disabled:opacity-60"
                 >
                   <Send className="h-4 w-4" />
-                  {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}
+                  {isPending ? 'Submitting...' : 'Submit Enquiry'}
                 </button>
               </form>
             )}
