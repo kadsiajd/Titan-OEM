@@ -18,8 +18,3 @@ export const getInTouchContent = {
   phone: '+91 422 123 4567',
   email: 'info@titanoem.com',
 };
-
-export const enquiryBannerContent = {
-  message:
-    "We value your interest in Titan OEM. Our team will get back to you as soon as possible. For product enquiries, technical support, or business collaborations, we're just a message away.",
-};

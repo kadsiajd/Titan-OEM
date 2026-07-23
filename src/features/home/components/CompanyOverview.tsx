@@ -4,7 +4,7 @@ import { companyOverviewContent } from '@/mocks/mock-home';
 
 export function CompanyOverview() {
   return (
-    <section className="bg-white pb-16 pt-28">
+    <section className="flex min-h-screen items-center bg-white pb-16 pt-28">
       <div className="container-page grid items-center gap-12 lg:grid-cols-2">
         <div>
           <span className="block h-1 w-12 bg-brand-600" />

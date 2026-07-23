@@ -6,9 +6,9 @@ export default function AboutHero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-white text-slate-900"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-white text-slate-900"
     >
-      <div className="mx-auto max-w-7xl px-5 py-8 sm:px-8 sm:py-12 lg:px-12 lg:py-16">
+      <div className="mx-auto w-full max-w-7xl px-5 py-8 sm:px-8 sm:py-12 lg:px-12 lg:py-16">
         {/* Top label */}
         {/* <div className="mb-8 flex items-center justify-between border-b border-teal-500/30 pb-5 sm:mb-12">
           <div className="flex items-center gap-3">

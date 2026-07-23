@@ -29,8 +29,8 @@ export default function Customers() {
   };
 
   return (
-    <section id="customers" className="bg-white py-16 sm:py-20 lg:py-28">
-      <div className="mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-12">
+    <section id="customers" className="flex min-h-screen flex-col justify-center bg-white py-16 sm:py-20 lg:py-28">
+      <div className="mx-auto w-full max-w-[1200px] px-5 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="text-center">
           <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-[#00b2ad]">
@@ -60,7 +60,7 @@ export default function Customers() {
           <div
             ref={scrollRef}
             onScroll={handleScroll}
-            className="flex flex-1 snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex min-w-0 flex-1 snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {aboutData.customers.map((customer) => (
               <div

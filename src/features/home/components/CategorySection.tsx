@@ -40,7 +40,7 @@ export function CategorySection() {
   }
 
   return (
-    <section className="bg-gray-50 py-16">
+    <section className="flex min-h-screen items-center bg-gray-50 py-16">
       <div className="container-page text-center">
         <p className="text-sm font-bold uppercase tracking-wide text-brand-600">
           Product Categories
@@ -94,7 +94,7 @@ export function CategorySection() {
             <button
               type="button"
               onClick={() => scrollToIndex(Math.min(categories.length - 1, activeIndex + 1))}
-              disabled={activeIndex === categories.length - 1}
+              disabled={activeIndex >= categories.length - 1}
               aria-label="Next category"
               className="absolute right-0 top-1/2 z-10 -translate-y-1/2 translate-x-1/2 rounded-full bg-white p-2 text-gray-700 shadow-md disabled:opacity-40 sm:hidden"
             >

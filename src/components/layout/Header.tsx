@@ -7,7 +7,7 @@ import { ArrowUpRight, Menu, X } from 'lucide-react';
 const NAV_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'Products', href: '/' },
-  { label: 'Tool Room', href: '#' },
+  { label: 'Tool Room', href: '/tool-room' },
   { label: 'Technical Information', href: '#' },
   { label: 'About Us', href: '/about' },
   // { label: 'Contact Us', href: '#' },

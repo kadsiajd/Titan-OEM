@@ -36,7 +36,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
     product = await productApi.getById(id);
   } catch {
     return (
-      <div className="container-page py-16 text-center">
+      <div className="container-page flex min-h-screen flex-col items-center justify-center py-16 text-center">
         <h1 className="text-2xl font-bold text-gray-900">Product Not Found</h1>
         <p className="mt-2 text-gray-600">The product you are looking for does not exist.</p>
         <Link href="/" className="mt-6 inline-block">
@@ -47,7 +47,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
   }
 
   return (
-    <div className="container-page py-10">
+    <div className="container-page min-h-screen py-10">
       <Link href="/" className="mb-6 inline-block text-sm text-brand-600 hover:underline">
         &larr; Back to Catalog
       </Link>
