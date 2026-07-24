@@ -1,61 +1,72 @@
-import type {
-  CreateProductRequest,
-  Product,
-  ProductsResponse,
-  UpdateProductRequest,
-} from '@/features/products/types/product.types';
+import type { Product } from '@/features/products/types/product.types';
+
+export interface CreateProductRequest {
+  name: string;
+  sku?: string;
+  description: string;
+  price?: number;
+  stock?: number;
+  category: string;
+  imageUrl?: string;
+}
+
+export interface UpdateProductRequest extends Partial<CreateProductRequest> {
+  id: string;
+}
+
+export interface ProductsResponse {
+  products: Product[];
+  total: number;
+}
 
 const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-1',
     name: 'Industrial Servo Motor X200',
-    sku: 'OEM-SRV-X200',
-    description:
-      'High-torque servo motor designed for precision automation and OEM assembly lines.',
-    price: 1299.99,
-    stock: 42,
+    description: 'High-torque servo motor designed for precision automation and OEM assembly lines.',
+    categoryId: 'motors',
     category: 'Motors',
-    imageUrl: 'https://placehold.co/600x400/png?text=Servo+Motor',
-    createdAt: '2026-01-10T08:00:00.000Z',
-    updatedAt: '2026-01-10T08:00:00.000Z',
+    imageUrl: '/micromotor/image.png',
+    overview: [],
+    productDetails: [],
+    specificationSheetUrl: '',
+    technicalDrawingUrl: '',
   },
   {
     id: 'prod-2',
     name: 'Hydraulic Pump Assembly HPA-45',
-    sku: 'OEM-HYD-HPA45',
-    description:
-      'Compact hydraulic pump assembly with integrated pressure regulation for heavy-duty equipment.',
-    price: 849.5,
-    stock: 18,
+    description: 'Compact hydraulic pump assembly with integrated pressure regulation for heavy-duty equipment.',
+    categoryId: 'hydraulics',
     category: 'Hydraulics',
-    imageUrl: 'https://placehold.co/600x400/png?text=Hydraulic+Pump',
-    createdAt: '2026-01-12T10:30:00.000Z',
-    updatedAt: '2026-01-12T10:30:00.000Z',
+    imageUrl: '/micromotor/image.png',
+    overview: [],
+    productDetails: [],
+    specificationSheetUrl: '',
+    technicalDrawingUrl: '',
   },
   {
     id: 'prod-3',
     name: 'PLC Control Module CM-900',
-    sku: 'OEM-PLC-CM900',
-    description:
-      'Programmable logic controller module with multi-protocol I/O for factory automation systems.',
-    price: 2199.0,
-    stock: 7,
+    description: 'Programmable logic controller module with multi-protocol I/O for factory automation systems.',
+    categoryId: 'controls',
     category: 'Controls',
-    createdAt: '2026-01-15T14:15:00.000Z',
-    updatedAt: '2026-01-15T14:15:00.000Z',
+    imageUrl: '/micromotor/image.png',
+    overview: [],
+    productDetails: [],
+    specificationSheetUrl: '',
+    technicalDrawingUrl: '',
   },
   {
     id: 'prod-4',
     name: 'Stainless Steel Bearing Unit SB-120',
-    sku: 'OEM-BRG-SB120',
-    description:
-      'Corrosion-resistant bearing unit rated for continuous operation in harsh industrial environments.',
-    price: 189.99,
-    stock: 120,
+    description: 'Corrosion-resistant bearing unit rated for continuous operation in harsh industrial environments.',
+    categoryId: 'bearings',
     category: 'Bearings',
-    imageUrl: 'https://placehold.co/600x400/png?text=Bearing+Unit',
-    createdAt: '2026-01-18T09:45:00.000Z',
-    updatedAt: '2026-01-18T09:45:00.000Z',
+    imageUrl: '/micromotor/image.png',
+    overview: [],
+    productDetails: [],
+    specificationSheetUrl: '',
+    technicalDrawingUrl: '',
   },
 ];
 
@@ -80,12 +91,17 @@ export const mockProductApi = {
 
   create: async (payload: CreateProductRequest): Promise<Product> => {
     await delay();
-    const now = new Date().toISOString();
     const product: Product = {
       id: `prod-${Date.now()}`,
-      ...payload,
-      createdAt: now,
-      updatedAt: now,
+      name: payload.name,
+      description: payload.description,
+      categoryId: payload.category.toLowerCase(),
+      category: payload.category,
+      imageUrl: payload.imageUrl || '/micromotor/image.png',
+      overview: [],
+      productDetails: [],
+      specificationSheetUrl: '',
+      technicalDrawingUrl: '',
     };
     products = [product, ...products];
     return product;
@@ -101,7 +117,6 @@ export const mockProductApi = {
       ...products[index],
       ...payload,
       id,
-      updatedAt: new Date().toISOString(),
     };
     products = [...products.slice(0, index), updated, ...products.slice(index + 1)];
     return updated;

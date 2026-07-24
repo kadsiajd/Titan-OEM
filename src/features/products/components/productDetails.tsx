@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Download, FileText, Heart, Loader2, X, ZoomIn } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Download, FileText, Loader2, X, ZoomIn } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 import { productApi } from '../services/productApi';
@@ -18,7 +18,6 @@ interface ProductDetailsProps {
 export default function ProductDetails({ categoryId, productId }: ProductDetailsProps) {
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
-  const [isFavourite, setIsFavourite] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
 
   useEffect(() => {
@@ -58,36 +57,34 @@ export default function ProductDetails({ categoryId, productId }: ProductDetails
   return (
     <main className="bg-white">
       <div className="border-b border-slate-100">
-        <nav className="mx-auto flex max-w-7xl items-center gap-2 px-5 py-4 text-xs text-slate-400 sm:px-8 lg:px-10" aria-label="Breadcrumb">
+        <nav className="container-page flex items-center gap-2 py-4 text-xs text-slate-400" aria-label="Breadcrumb">
           <Link href="/" className="hover:text-brand-600">Home</Link><span>›</span>
           <Link href={`/products/${categoryId}`} className="hover:text-brand-600">{product.category}</Link><span>›</span>
-          <span className="font-medium text-brand-900">{product.name}</span>
+          <span className="font-medium text-brand-900 truncate">{product.name}</span>
         </nav>
       </div>
 
-      <section className="mx-auto max-w-7xl px-5 py-8 sm:px-8 lg:px-10 lg:py-12">
+      <section className="container-page py-8 lg:py-12">
         <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,28rem)_minmax(0,1fr)] lg:gap-16">
           <ProductGallery image={image} name={product.name} onZoom={() => setIsZoomed(true)} />
 
           <div className="w-full max-w-2xl pt-1">
-           
-
-            <div className="mt-5 flex flex-wrap items-center gap-3">
-              <h1 className="text-3xl font-bold tracking-tight text-brand-900 sm:text-4xl">{product.name}</h1>
+            <div className="mt-2 flex flex-wrap items-center gap-3">
+              <h1 className="text-2xl font-bold tracking-tight text-brand-900 sm:text-4xl">{product.name}</h1>
             </div>
             <p className="mt-3 text-sm font-medium text-brand-600">{product.category} movement</p>
 
             <dl className="mt-6 divide-y divide-slate-200 border-y border-slate-200">
               {product.overview.map((field) => (
-                <div key={field.label} className="grid grid-cols-[minmax(7.5rem,0.85fr)_minmax(0,1.15fr)] gap-4 py-3 text-sm">
+                <div key={field.label} className="grid grid-cols-1 sm:grid-cols-[minmax(7.5rem,0.85fr)_minmax(0,1.15fr)] gap-1 sm:gap-4 py-3 text-sm">
                   <dt className="font-semibold text-brand-900">{field.label}</dt>
                   <dd className="text-slate-600">{field.value || '—'}</dd>
                 </div>
               ))}
             </dl>
 
-            <Link href={`/contact-us?product=${encodeURIComponent(product.name)}`} className="mt-7 flex h-12 w-full max-w-xl items-center justify-center rounded-full bg-brand-600 text-sm font-semibold text-white transition hover:bg-brand-700">
-              Enquiry Now <span className="ml-2">→</span>
+            <Link href={`/contact-us`} className="mt-7 flex h-12 items-center justify-center  bg-brand-600 text-sm font-semibold text-white transition hover:bg-brand-500">
+              Enquiry Now <span className="ml-2"><ArrowRight className='w-4 h-4 '/></span>
             </Link>
           </div>
         </div>

@@ -2,7 +2,7 @@ import { infrastructureContent } from '@/mocks/mock-tool-room';
 
 export function InfrastructureSection() {
   return (
-    <section id="infrastructure" className="flex min-h-screen items-center bg-white py-16">
+    <section id="infrastructure" className="bg-white py-14 sm:py-18 lg:py-24">
       <div className="container-page text-center">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           {infrastructureContent.heading}

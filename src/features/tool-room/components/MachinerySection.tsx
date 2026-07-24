@@ -2,14 +2,14 @@ import { machineryContent } from '@/mocks/mock-tool-room';
 
 export function MachinerySection() {
   return (
-    <section id="machinery" className="flex min-h-screen items-center bg-gray-50 py-16">
+    <section id="machinery" className="bg-gray-50 py-14 sm:py-18 lg:py-24">
       <div className="container-page text-center">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           {machineryContent.heading}
         </h2>
         <p className="mt-4 text-lg text-gray-600">{machineryContent.description}</p>
 
-        <div className="mt-12 grid gap-6 text-left sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-12 grid gap-6 text-left sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {machineryContent.items.map((item, index) => (
             <div
               key={item.id}

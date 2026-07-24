@@ -11,7 +11,7 @@ export const companyOverviewContent = {
 };
 
 export const contactCtaContent = {
-  heading: 'Have a Question or Project in Mind?',
+  heading: 'Have a Question',
   description:
     "We're here to help. Get in touch with Titan OEM for product enquiries, custom solutions or business opportunities.",
   phone: '+91 80 1234 5678',

@@ -2,7 +2,7 @@ import { toolRoomHeroContent } from '@/mocks/mock-tool-room';
 
 export function ToolRoomHero() {
   return (
-    <section className="flex min-h-screen items-center bg-white py-16">
+    <section className="bg-white py-14 sm:py-18 lg:py-24">
       <div className="container-page grid items-center gap-12 lg:grid-cols-2">
         <div>
           <p className="text-sm font-bold uppercase tracking-wide text-brand-600">

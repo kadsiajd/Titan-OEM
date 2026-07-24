@@ -16,7 +16,7 @@ vi.mock('next/link', () => ({
 const product: Product = {
   id: 'product-1',
   name: '6120',
-  description: 'A reliable quartz movement.',
+  // description: 'A reliable quartz movement.',
   categoryId: 'category-1',
   category: 'Quartz',
   imageUrl: '/products/6120.png',
@@ -34,7 +34,7 @@ describe('ProductCard', () => {
     render(<ProductCard product={product} categoryId="quartz" index={0} />);
 
     expect(screen.getByRole('heading', { name: '6120' })).toBeInTheDocument();
-    expect(screen.getByText(product.description)).toBeInTheDocument();
+    // expect(screen.getByText(product.description)).toBeInTheDocument();
     expect(screen.getByText('Battery Life')).toBeInTheDocument();
     expect(screen.getByText('36 M')).toBeInTheDocument();
     expect(screen.getByRole('img', { name: '6120' })).toHaveAttribute('src', product.imageUrl);

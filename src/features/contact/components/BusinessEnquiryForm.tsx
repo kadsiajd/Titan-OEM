@@ -51,7 +51,7 @@ export function BusinessEnquiryForm() {
   }
 
   return (
-    <section className="flex min-h-screen items-center bg-gray-50 py-16">
+    <section className="bg-gray-50 py-14 sm:py-18 lg:py-24">
       <div className="container-page grid gap-10 lg:grid-cols-[1fr_1.4fr]">
         <div>
           <span className="block h-1 w-12 bg-brand-600" />

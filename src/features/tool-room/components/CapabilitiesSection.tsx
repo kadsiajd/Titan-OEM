@@ -5,7 +5,7 @@ const ICONS = [Factory, Users, PenTool, ShieldCheck];
 
 export function CapabilitiesSection() {
   return (
-    <section id="capabilities" className="flex min-h-screen items-center bg-white py-16">
+    <section id="capabilities" className="bg-white py-14 sm:py-18 lg:py-24">
       <div className="container-page text-center">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           {capabilitiesContent.heading}

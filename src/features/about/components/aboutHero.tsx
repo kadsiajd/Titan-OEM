@@ -6,9 +6,9 @@ export default function AboutHero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-white text-slate-900"
+      className="relative overflow-hidden bg-white text-slate-900 py-12 sm:py-16 lg:py-20"
     >
-      <div className="mx-auto max-w-8xl px-5 py-8 sm:px-8 sm:py-12 lg:px-12 lg:py-16">
+      <div className="container-page">
 
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
 
@@ -21,7 +21,7 @@ export default function AboutHero() {
               </span>
             </div>
 
-            <h1 className="max-w-xl text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-slate-950 sm:text-5xl lg:text-6xl xl:text-7xl">
+            <h1 className="max-w-xl text-3xl font-semibold leading-[1.1] tracking-[-0.04em] text-slate-950 sm:text-5xl lg:text-6xl">
               Building ideas
               <span className="block text-brand-500">
                 into reality.

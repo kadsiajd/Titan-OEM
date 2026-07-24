@@ -11,7 +11,7 @@ export interface ProductDetailSection {
 export interface Product {
   id: string;
   name: string;
-  description: string;
+  // description: string;
 
   categoryId: string;
   category: string;
@@ -24,4 +24,9 @@ export interface Product {
   overview: ProductField[];
 
   productDetails: ProductDetailSection[];
+}
+export interface ProductsResponse {
+  success: boolean;
+  message?: string;
+  data: Product[];
 }

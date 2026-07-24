@@ -29,8 +29,8 @@ export default function NotFound() {
           Part not found in catalog
         </h2>
         <p className="mt-3 max-w-sm text-slate-600">
-          The page you're looking for doesn't exist, was moved, or was
-          discontinued. Let's get you back to something that's in stock.
+          The page you&apos;re looking for doesn&apos;t exist, was moved, or was
+          discontinued. Let&apos;s get you back to something that&apos;s in stock.
         </p>
 
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
