@@ -59,16 +59,10 @@ export default function ProductCard({
       <div className="p-4">
         {/* PRODUCT NAME */}
 
-        <h3 className="mt-1 text-sm font-semibold text-brand-900">
+        <h3 className="mt-1 text-base font-semibold text-brand-900">
           {product.name}
         </h3>
 
-        {/* DESCRIPTION */}
-
-        <p className="mt-2 line-clamp-2 text-[11px] leading-4 text-slate-500">
-          {product.description ||
-            'High-performance product designed for precision applications.'}
-        </p>
 
         {/* ================================================================
             PRODUCT OVERVIEW
@@ -101,7 +95,7 @@ export default function ProductCard({
 
         <Link
           href={productDetailsUrl}
-          className="mt-3 flex items-center justify-center border border-brand-600 px-3 py-2 text-[10px] font-semibold text-brand-600 transition-colors hover:bg-brand-600 hover:text-white"
+          className="mt-3 flex items-center justify-center border border-brand-600 px-2 py-1.5 text-sm font-semibold text-brand-600 transition-colors hover:bg-brand-600 hover:text-white"
         >
           View Product Details
         </Link>
@@ -146,7 +140,7 @@ function ProductOverview({
 }: ProductOverviewProps) {
   return (
     <div className="mt-4 border-t border-slate-200 pt-3">
-      <h4 className="mb-2.5 text-[14px] font-bold text-brand-900">
+      <h4 className="mb-2.5 text-base font-bold text-brand-900">
         Product Overview
       </h4>
 

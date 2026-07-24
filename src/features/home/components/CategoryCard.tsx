@@ -23,7 +23,7 @@ export function CategoryCard({ category }: CategoryCardProps) {
         <p className="mt-4 text-sm text-gray-600">{category.description}</p>
         <Link
           href={`/products/${encodeURIComponent(category.id)}`}
-          className="mt-6 inline-flex items-center gap-2 rounded-md border border-brand-600 px-4 py-2 text-sm font-semibold text-brand-600 hover:bg-brand-600 hover:text-white"
+          className="mt-6 inline-flex items-center gap-2 border border-brand-600 px-3 py-2 text-sm font-semibold text-brand-600 hover:bg-brand-600 hover:text-white"
         >
           View Products
           <ArrowRight className="h-4 w-4" />

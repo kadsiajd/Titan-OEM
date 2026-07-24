@@ -5,8 +5,8 @@ const icons = [Flag, Settings, Users, Award, TrendingUp];
 
 export default function HistoryHeritage() {
   return (
-    <section id="history" className="flex min-h-screen flex-col justify-center bg-slate-50 py-16 sm:py-20 lg:py-28">
-      <div className="mx-auto w-full max-w-[1200px] px-5 sm:px-8 lg:px-12">
+    <section id="history" className="bg-slate-50 py-14 sm:py-18 lg:py-24">
+      <div className="container-page">
         {/* Header */}
         <div className="text-center">
           <div className="mx-auto flex items-center justify-center gap-3">

@@ -24,16 +24,20 @@ const FOOTER_LINK_GROUPS: FooterLinkGroups = {
   Products: {
     icon: Package,
     links: [
-      { label: "All Products", href: "/products" },
-      { label: "Categories", href: "/categories" },
-      { label: "Tool Room", href: "/toolroom" },
+      { label: "Micromotor", href: "/products/f66157de-7db9-40bc-8f1d-41fb961af00a" },
+      { label: "Mechanical", href: "/products/a0a6b1b8-da6a-4d30-b522-3da71860ae55" },
+      { label: "Quartz", href: "/products/a20c9719-750c-4ee8-9c3f-1716b2b0650c" },
     ],
   },
   Company: {
     icon: Building2,
     links: [
       { label: "About TITAN", href: "/about" },
+      { label: "Tool Room", href: "/toolroom" },
+      { label: "Technical Information", href: "/technical-information" },
       { label: "Contact Us", href: "/contact" },
+
+
     ],
   },
   Support: {
@@ -84,13 +88,13 @@ function BrandColumn() {
       </p>
 
       <Link
-        href="/products"
-        className="group mt-5 inline-flex items-center gap-2 border-b border-teal-300/50 pb-1 text-sm font-semibold text-white transition-colors hover:border-teal-300"
+        href="/products/a0a6b1b8-da6a-4d30-b522-3da71860ae55"
+        className="group mt-5 inline-flex items-center gap-2 border-b border-brand-600/50 pb-1 text-sm font-semibold text-white transition-colors hover:border-brand-600"
       >
         Explore Products
         <ArrowRight
           aria-hidden="true"
-          className="h-4 w-4 text-teal-300 transition-transform duration-300 group-hover:translate-x-1"
+          className="h-4 w-4 text-brand-600 transition-transform duration-300 group-hover:translate-x-1"
         />
       </Link>
     </div>
@@ -107,7 +111,7 @@ function LinkColumn({
   links: FooterLink[];
 }) {
   return (
-    <div className="text-center sm:text-left mt-9">
+    <div className="text-center sm:text-left">
       <h3 className="flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-widest text-white sm:justify-start">
         <Icon aria-hidden="true" className="h-4 w-4 shrink-0 text-teal-300" />
         {title}
@@ -135,7 +139,7 @@ function LinkColumn({
 
 function NavigationGrid() {
   return (
-    <div className="grid grid-cols-2 gap-6 xs:gap-8 sm:grid-cols-3 sm:gap-8">
+    <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 sm:gap-8">
       {Object.entries(FOOTER_LINK_GROUPS).map(([title, group], index) => (
         <div
           key={title}
@@ -160,18 +164,18 @@ export function Footer() {
       <RiverEdge />
 
       <footer className="relative w-full overflow-hidden bg-slate-900 text-white">
-        <div className="relative w-full px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div className="container-page relative">
           <div className="grid gap-10 py-10 sm:py-12 md:grid-cols-12 md:gap-16 lg:py-14">
             <div className="md:col-span-5">
               <BrandColumn />
             </div>
-            <div className="mt-10 md:col-span-7 md:mt-0">
+            <div className="mt-6 md:col-span-7 md:mt-0">
               <NavigationGrid />
             </div>
           </div>
 
-          <div className="flex flex-col items-center gap-3 border-t border-white/10 py-5 text-center text-xs sm:flex-row sm:items-center sm:justify-between sm:text-left">
-            <p className="text-slate-500">
+          <div className="flex flex-col items-center gap-3 border-t border-white/10 py-6 text-center text-xs sm:flex-row sm:items-center sm:justify-between sm:text-left">
+            <p className="text-slate-400">
               © {currentYear} TITAN OEM Product Catalog. All rights reserved.
             </p>
           </div>

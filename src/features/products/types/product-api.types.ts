@@ -18,8 +18,4 @@ export interface ApiProduct {
   technicalDrawingUrl?: string;
 }
 
-export interface ProductsResponse {
-  success: boolean;
-  message?: string;
-  data: ApiProduct[];
-}
+

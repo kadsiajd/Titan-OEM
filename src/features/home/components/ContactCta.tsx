@@ -4,10 +4,10 @@ import { contactCtaContent } from '@/mocks/mock-home';
 
 export function ContactCta() {
   return (
-    <section className="flex min-h-screen items-center bg-white py-16">
+    <section className="bg-white py-16 sm:py-20 lg:py-24">
       <div className="container-page">
         <div className="grid overflow-hidden rounded-2xl bg-gray-50 lg:grid-cols-2">
-          <div className="relative h-64 lg:h-auto">
+          <div className="relative min-h-[240px] sm:min-h-[300px] lg:min-h-[360px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/home-contact.webp"
@@ -24,7 +24,7 @@ export function ContactCta() {
             />
           </div>
 
-          <div className="flex flex-col justify-center p-8 sm:p-12">
+          <div className="flex flex-col justify-center p-6 sm:p-10 lg:p-12">
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-brand-600" />
               <span className="text-sm font-bold uppercase tracking-wide text-brand-600">
@@ -32,27 +32,27 @@ export function ContactCta() {
               </span>
             </div>
 
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="mt-4 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl">
               {contactCtaContent.heading}
             </h2>
 
-            <p className="mt-4 text-gray-600">{contactCtaContent.description}</p>
+            <p className="mt-4 text-base text-gray-600 leading-relaxed">{contactCtaContent.description}</p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-6">
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
               <Link
-                href="#"
-                className="inline-flex items-center gap-2 rounded-md border border-brand-600 px-5 py-3 text-sm font-semibold text-brand-600 hover:bg-brand-600 hover:text-white"
+                href="/contact-us"
+                className="inline-flex text-base items-center justify-center gap-2 border border-brand-600 bg-brand-600 px-2 py-1.5 text-sm font-semibold text-white transition hover:bg-brand-500"
               >
                 Contact Us
                 <ArrowRight className="h-4 w-4" />
               </Link>
 
-              <div className="flex items-center gap-3 border-l border-gray-300 pl-6">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full border border-brand-600 text-brand-600">
+              <div className="flex items-center gap-3 border-t border-gray-200 pt-4 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-brand-600 text-brand-600">
                   <Phone className="h-4 w-4" />
                 </span>
                 <div>
-                  <p className="text-xs font-semibold text-brand-600">Call Us</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-brand-600">Call Us</p>
                   <p className="text-sm font-bold text-gray-900">{contactCtaContent.phone}</p>
                 </div>
               </div>

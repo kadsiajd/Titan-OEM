@@ -1,7 +1,7 @@
 import { publicClient } from '@/utils/api-client';
 import { mapApiProductToProduct } from '../mappers/product.mapper';
-import type { Product } from '../types/product.types';
-import type { ProductsResponse } from '../types/product-api.types';
+import type { Product, ProductsResponse } from '../types/product.types';
+// import type { ProductsResponse } from '../types/product-api.types';
 
 export const productApi = {
   getAllByCategory: async (categoryId: string): Promise<Product[]> => {
