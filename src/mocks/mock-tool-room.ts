@@ -66,31 +66,31 @@ export const machineryContent = {
       id: 'cnc-turning-center',
       title: 'CNC Turning Center',
       description: 'High precision turning for complex components with tight tolerances.',
-      imageUrl: '/tool-room/machinery-1.jpg',
+      imageUrl: '/toolroom/image.png',
     },
     {
       id: 'cnc-vertical-machining-center',
       title: 'CNC Vertical Machining Center',
       description: 'Advanced 3-axis/4-axis machining for high precision and intricate components.',
-      imageUrl: '/tool-room/machinery-2.jpg',
+      imageUrl: '/toolroom/image.png',
     },
     {
       id: 'surface-grinding-machine',
       title: 'Surface Grinding Machine',
       description: 'Precision surface grinding for flat surfaces with superior finish and accuracy.',
-      imageUrl: '/tool-room/machinery-3.jpg',
+      imageUrl: '/toolroom/image.png',
     },
     {
       id: 'wire-edm-machine',
       title: 'Wire EDM Machine',
       description: 'Ideal for cutting complex profiles in hard materials with high accuracy.',
-      imageUrl: '/tool-room/machinery-4.jpg',
+      imageUrl: '/toolroom/image.png',
     },
     {
       id: 'cmm',
       title: 'CMM (Coordinate Measuring Machine)',
       description: 'High-precision measurement and inspection for quality assurance.',
-      imageUrl: '/tool-room/machinery-5.jpg',
+      imageUrl: '/toolroom/image.png',
     },
   ] satisfies MachineryItem[],
 };
@@ -104,27 +104,27 @@ export const infrastructureContent = {
       title: 'Production Area',
       description:
         'Advanced production area with modern machinery and streamlined workflow for maximum efficiency.',
-      imageUrl: '/tool-room/infrastructure-1.jpg',
+      imageUrl: '/toolroom/image.png',
     },
     {
       id: 'assembly-area',
       title: 'Assembly Area',
       description:
         'Dedicated assembly lines with skilled workforce ensuring precision assembly and consistency.',
-      imageUrl: '/tool-room/infrastructure-2.jpg',
+      imageUrl: '/toolroom/image.png',
     },
     {
       id: 'testing-facilities',
       title: 'Testing Facilities',
       description:
         'Fully equipped testing and inspection labs to ensure every product meets global quality standards.',
-      imageUrl: '/tool-room/infrastructure-3.jpg',
+      imageUrl: '/toolroom/image.png',
     },
     {
       id: 'infrastructure-gallery',
       title: 'Infrastructure Gallery',
       description: 'A glimpse of our advanced facilities and world-class infrastructure.',
-      imageUrl: '/tool-room/infrastructure-4.jpg',
+      imageUrl: '/toolroom/image.png',
     },
   ] satisfies InfrastructureItem[],
 };

@@ -20,7 +20,7 @@ export function ToolRoomHero() {
         <div className="overflow-hidden rounded-lg">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/tool-room/hero.jpg"
+            src="/toolroom/image.png"
             alt="Titan OEM manufacturing facility"
             className="h-72 w-full object-cover sm:h-96"
           />
