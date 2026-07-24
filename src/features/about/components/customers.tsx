@@ -67,7 +67,7 @@ export default function Customers() {
       <div className="mx-auto w-full max-w-[1200px] px-5 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="text-center">
-          <p className="font-mono text-[12px] font-semibold uppercase tracking-[0.3em] text-[#00b2ad]">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.3em] text-[#00b2ad]">
             Our Customers
           </p>
 

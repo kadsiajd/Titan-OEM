@@ -11,7 +11,7 @@ export default function HistoryHeritage() {
         <div className="text-center">
           <div className="mx-auto flex items-center justify-center gap-3">
             <span className="h-px w-8 bg-teal-500" />
-            <p className="font-mono text-[12px] font-semibold uppercase tracking-[0.3em] text-teal-500">
+            <p className="text-[12px] font-semibold uppercase tracking-[0.3em] text-teal-500">
               History &amp; Heritage
             </p>
             <span className="h-px w-8 bg-teal-500" />
@@ -48,7 +48,7 @@ export default function HistoryHeritage() {
                 </span>
 
                 <div className="lg:mt-5">
-                  <p className="font-mono text-sm font-bold text-teal-500">
+                  <p className="text-sm font-bold text-teal-500">
                     {item.year}
                   </p>
 

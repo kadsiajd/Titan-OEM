@@ -1,45 +1,23 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowUpRight, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 
 import type { Product } from '@/features/products/types/product.types';
-import { microMotorApi } from '../microMotor/services/microMotorApi';
-import Breadcrumb from '@/components/ui/Breadcrumb';
-import ProductCard from '../../categoryProductCard';
-
-interface CategoryProductsPageProps {
-  categorySlug: string;
-}
-
-const FALLBACK_IMAGE = '/micromotor/image.png';
-
-const formatCategoryName = (slug: string): string => {
-  return slug
-    .split('-')
-    .filter(Boolean)
-    .map(
-      (word) =>
-        word.charAt(0).toUpperCase() +
-        word.slice(1).toLowerCase()
-    )
-    .join(' ');
-};
-
-const getProductImage = (product: Product): string => {
-  return product.imageUrl || FALLBACK_IMAGE;
-};
+import { ProductCardGrid } from './productCard';
+import { productApi } from '../services/productApi';
 
 export default function CategoryProductsPage({
-  categorySlug,
-}: CategoryProductsPageProps) {
+  categoryId,
+}: {
+  categoryId: string;
+}) {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const categoryName = formatCategoryName(categorySlug);
+  const categoryName = products[0]?.category || 'Products';
+  const isMicroMotor = categoryName.toLowerCase() === 'micromotor';
 
   useEffect(() => {
     let isMounted = true;
@@ -49,10 +27,7 @@ export default function CategoryProductsPage({
         setLoading(true);
         setError(null);
 
-        const data =
-          await microMotorApi.getProductsByCategory(
-            categoryName
-          );
+        const data = await productApi.getAllByCategory(categoryId);
 
         if (isMounted) {
           setProducts(data);
@@ -80,7 +55,7 @@ export default function CategoryProductsPage({
     return () => {
       isMounted = false;
     };
-  }, [categoryName]);
+  }, [categoryId]);
 
   /* ================================================================
      LOADING
@@ -88,7 +63,7 @@ export default function CategoryProductsPage({
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-white">
+      <main className="bg-white">
         <div className="flex min-h-[500px] items-center justify-center">
           <div className="flex flex-col items-center gap-4">
             <Loader2
@@ -110,14 +85,25 @@ export default function CategoryProductsPage({
   ================================================================= */
 
   return (
-    <main className="min-h-screen bg-white">
-      <Breadcrumb categoryName={categoryName} />
+    <main className="bg-white">
+      {/* <Breadcrumb categoryName={categoryName} /> */}
       <section className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 mt-16">
         <h1 className="text-4xl font-bold tracking-tight text-brand-900 sm:text-5xl">
           {categoryName}
         </h1>
 
         <div className="mt-4 h-[3px] w-10 bg-brand-600 mb-10" />
+
+        {isMicroMotor && (
+          <p className="mb-10 max-w-xl text-sm leading-6 text-slate-600 sm:text-[15px]">
+            Micro motors are at the heart of modern watchmaking, converting
+            electrical energy into precise mechanical motion. Our
+            high-performance micromotors are engineered for accuracy,
+            reliability and long service life — ideal for analogue, digital
+            and multifunction quartz movements.
+          </p>
+        )}
+
         {/* ERROR */}
 
         {error && (
@@ -147,23 +133,12 @@ export default function CategoryProductsPage({
         {/* PRODUCTS ONLY */}
 
         {!error && products.length > 0 && (
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {products.map((product, index) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                categorySlug={categorySlug}
-                index={index}
-              />
-            ))}
-          </div>
+          <ProductCardGrid
+            products={products}
+            categoryId={categoryId}
+          />
         )}
       </section>
     </main>
   );
 }
-
-
-
-
-

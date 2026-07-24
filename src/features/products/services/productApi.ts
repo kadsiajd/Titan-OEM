@@ -1,13 +1,23 @@
 import { publicClient } from '@/utils/api-client';
-import type {
-  Product,
-} from '../types/product.types';
+import { mapApiProductToProduct } from '../mappers/product.mapper';
+import type { Product } from '../types/product.types';
+import type { ProductsResponse } from '../types/product-api.types';
 
 export const productApi = {
-  getAllByCategory: async (category: string): Promise<Product[]> => {
-    const { data } = await publicClient.get<Product[]>(`/products?category=${category}`);
-    return data;
+  getAllByCategory: async (categoryId: string): Promise<Product[]> => {
+    const { data } = await publicClient.get<ProductsResponse>(
+      `/products`,
+      {
+        params: {
+          categoryId,
+        },
+      }
+    );
+
+    if (!data.success || !Array.isArray(data.data)) {
+      throw new Error('The products API returned an invalid response.');
+    }
+
+    return data.data.map(mapApiProductToProduct);
   },
-
-
-}
+};

@@ -23,7 +23,7 @@ describe('CategoryCard', () => {
     expect(screen.getByText(category.description)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /view products/i })).toHaveAttribute(
       'href',
-      '/products'
+      '/products/cat-1'
     );
   });
 });

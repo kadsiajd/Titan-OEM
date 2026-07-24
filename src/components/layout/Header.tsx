@@ -16,21 +16,6 @@ const NAV_LINKS = [
   { label: 'About Us', href: '/about' },
 ];
 
-/**
- * Convert category name into URL slug.
- *
- * Example:
- * "Micro Motors" -> "micro-motors"
- * "Watch Movements" -> "watch-movements"
- */
-const createSlug = (value: string) => {
-  return value
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-};
-
 export function Header() {
   const router = useRouter();
   const pathname = usePathname();
@@ -125,23 +110,19 @@ export function Header() {
    *
    * Example:
    *
-   * category.name = "Micro Motors"
+   * category.id = "category-123"
    *
    * URL:
-   * /products/micro-motors
+   * /products/category-123
    */
-  const handleCategoryClick = (
-    categoryName: string
-  ) => {
-    const slug = createSlug(categoryName);
-
+  const handleCategoryClick = (category: Category) => {
     // Close menus
     setIsProductsOpen(false);
     setIsMobileProductsOpen(false);
     setIsMobileMenuOpen(false);
 
     // Navigate to dynamic category page
-    router.push(`/products/${slug}`);
+    router.push(`/products/${encodeURIComponent(category.id)}`);
   };
 
   /**
@@ -164,9 +145,6 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
       <div className="container-page flex h-[72px] items-center sm:h-20">
-        {/* =====================================================
-            LOGO
-        ====================================================== */}
         <Link
           href="/"
           className="flex h-full items-center"
@@ -177,10 +155,6 @@ export function Header() {
             className="h-10 w-auto object-contain sm:h-12"
           />
         </Link>
-
-        {/* =====================================================
-            DESKTOP NAVIGATION
-        ====================================================== */}
         <nav className="ml-auto hidden items-center lg:flex">
           {NAV_LINKS.map((link) => {
             const isProducts =
@@ -189,10 +163,6 @@ export function Header() {
             const active = isLinkActive(
               link.href
             );
-
-            {/* ===============================================
-                PRODUCTS DROPDOWN
-            ================================================ */}
             if (isProducts) {
               return (
                 <div
@@ -221,11 +191,10 @@ export function Header() {
                     Products
 
                     <ChevronDown
-                      className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                        isProductsOpen
+                      className={`h-3.5 w-3.5 transition-transform duration-200 ${isProductsOpen
                           ? 'rotate-180'
                           : ''
-                      }`}
+                        }`}
                     />
 
                     <span className="absolute bottom-0 left-3 right-3 h-[2px] origin-left scale-x-0 bg-brand-500 transition-transform duration-300 group-hover:scale-x-100" />
@@ -235,11 +204,10 @@ export function Header() {
                       CATEGORY DROPDOWN
                   ========================================== */}
                   <div
-                    className={`absolute left-0 top-full w-64 border border-slate-200 bg-white shadow-lg transition-all duration-200 ${
-                      isProductsOpen
+                    className={`absolute left-0 top-full w-64 border border-slate-200 bg-white shadow-lg transition-all duration-200 ${isProductsOpen
                         ? 'visible translate-y-0 opacity-100'
                         : 'invisible -translate-y-2 opacity-0'
-                    }`}
+                      }`}
                   >
                     {isLoadingCategories && (
                       <div className="px-4 py-3 text-sm text-slate-400">
@@ -276,9 +244,7 @@ export function Header() {
                                 <button
                                   type="button"
                                   onClick={() =>
-                                    handleCategoryClick(
-                                      category.name
-                                    )
+                                    handleCategoryClick(category)
                                   }
                                   className="flex w-full items-center justify-between px-4 py-2.5 text-left text-sm text-slate-600 transition hover:bg-slate-50 hover:text-brand-500"
                                 >
@@ -310,20 +276,18 @@ export function Header() {
                 aria-current={
                   active ? 'page' : undefined
                 }
-                className={`group relative flex h-20 items-center px-3 text-[13px] font-medium tracking-wide transition-colors duration-300 hover:text-brand-500 xl:px-4 ${
-                  active
+                className={`group relative flex h-20 items-center px-3 text-[13px] font-medium tracking-wide transition-colors duration-300 hover:text-brand-500 xl:px-4 ${active
                     ? 'text-brand-500'
                     : 'text-slate-600'
-                }`}
+                  }`}
               >
                 {link.label}
 
                 <span
-                  className={`absolute bottom-0 left-3 right-3 h-[2px] origin-left bg-brand-500 transition-transform duration-300 group-hover:scale-x-100 ${
-                    active
+                  className={`absolute bottom-0 left-3 right-3 h-[2px] origin-left bg-brand-500 transition-transform duration-300 group-hover:scale-x-100 ${active
                       ? 'scale-x-100'
                       : 'scale-x-0'
-                  }`}
+                    }`}
                 />
               </Link>
             );
@@ -367,11 +331,10 @@ export function Header() {
           MOBILE NAVIGATION
       ========================================================= */}
       <div
-        className={`overflow-hidden border-t border-slate-200 bg-white transition-all duration-300 lg:hidden ${
-          isMobileMenuOpen
+        className={`overflow-hidden border-t border-slate-200 bg-white transition-all duration-300 lg:hidden ${isMobileMenuOpen
             ? 'max-h-[800px] opacity-100'
             : 'max-h-0 opacity-0'
-        }`}
+          }`}
       >
         <nav className="px-4 py-3 sm:px-8">
           {NAV_LINKS.map((link) => {
@@ -406,20 +369,18 @@ export function Header() {
                     Products
 
                     <ChevronDown
-                      className={`h-4 w-4 transition-transform duration-200 ${
-                        isMobileProductsOpen
+                      className={`h-4 w-4 transition-transform duration-200 ${isMobileProductsOpen
                           ? 'rotate-180'
                           : ''
-                      }`}
+                        }`}
                     />
                   </button>
 
                   <div
-                    className={`overflow-hidden transition-all duration-300 ${
-                      isMobileProductsOpen
+                    className={`overflow-hidden transition-all duration-300 ${isMobileProductsOpen
                         ? 'max-h-96 pb-3'
                         : 'max-h-0'
-                    }`}
+                      }`}
                   >
                     {isLoadingCategories && (
                       <p className="py-2 pl-4 text-xs text-slate-400">
@@ -450,9 +411,7 @@ export function Header() {
                             key={category.id}
                             type="button"
                             onClick={() =>
-                              handleCategoryClick(
-                                category.name
-                              )
+                              handleCategoryClick(category)
                             }
                             className="flex w-full items-center justify-between py-2 pl-4 pr-2 text-left text-sm text-slate-500 transition hover:text-brand-500"
                           >
@@ -482,11 +441,10 @@ export function Header() {
                 aria-current={
                   active ? 'page' : undefined
                 }
-                className={`flex items-center justify-between border-b border-slate-100 py-4 text-sm font-medium transition hover:text-brand-500 ${
-                  active
+                className={`flex items-center justify-between border-b border-slate-100 py-4 text-sm font-medium transition hover:text-brand-500 ${active
                     ? 'text-brand-500'
                     : 'text-slate-600'
-                }`}
+                  }`}
               >
                 {link.label}
 

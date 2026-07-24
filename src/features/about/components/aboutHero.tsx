@@ -16,7 +16,7 @@ export default function AboutHero() {
 
             <div className="mb-7 flex items-center gap-4">
               <span className="h-px w-12 bg-brand-500" />
-              <span className="font-mono text-[15px] font-bold uppercase tracking-[0.25em] text-brand-500">
+              <span className="text-[15px] font-bold uppercase tracking-[0.25em] text-brand-500">
                 {aboutData.hero.subtitle}
               </span>
             </div>
@@ -47,7 +47,7 @@ export default function AboutHero() {
 
             <div className="mt-10 grid max-w-lg grid-cols-2 border-y border-slate-200">
               <div className="border-r border-slate-200 py-5 pr-5">
-                <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-brand-500">
+                <p className="text-[12px] uppercase tracking-[0.2em] text-brand-500">
                   Expertise
                 </p>
 
@@ -57,7 +57,7 @@ export default function AboutHero() {
               </div>
 
               <div className="py-5 pl-5">
-                <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-brand-500">
+                <p className="text-[12px] uppercase tracking-[0.2em] text-brand-500">
                   Approach
                 </p>
 
@@ -84,7 +84,7 @@ export default function AboutHero() {
               <div className="absolute bottom-5 left-5 sm:bottom-7 sm:left-7">
                 <div className="flex items-center gap-3 bg-brand-500 px-4 py-2.5">
 
-                  <span className="font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-white">
+                  <span className="text-[12px] font-semibold uppercase tracking-[0.2em] text-white">
                     Manufacturing Excellence
                   </span>
                 </div>

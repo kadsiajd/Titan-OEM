@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/Button';
 
 export default function NotFound() {
   return (
-    <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-white px-4">
+    <div className="relative flex flex-col items-center justify-center overflow-hidden bg-white px-4">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04]"
         style={{
@@ -14,11 +14,11 @@ export default function NotFound() {
       />
 
       <div className="relative flex w-full max-w-lg flex-col items-center text-center">
-        <span className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-teal-500">
+        <span className="text-xs font-medium uppercase tracking-[0.2em] text-teal-500">
           Error 404
         </span>
         <div className="relative mt-4">
-          <h1 className="text-[7rem] font-bold leading-none tracking-tight text-slate-900 sm:text-[9rem]">
+          <h1 className="text-[112px] font-bold leading-none tracking-tight text-slate-900 sm:text-[144px]">
             404
           </h1>
           <span className="absolute -right-3 top-2 h-4 w-4 border-r-2 border-t-2 border-teal-500 sm:h-5 sm:w-5" />

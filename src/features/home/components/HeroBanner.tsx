@@ -5,7 +5,7 @@ import { heroContent } from '@/mocks/mock-home';
 export function HeroBanner() {
   return (
     <section
-      className="relative flex min-h-screen items-center bg-[url('/hero-banner.jpg')] bg-cover bg-left bg-no-repeat"
+      className="relative flex items-center bg-[url('/hero-banner.jpg')] bg-cover bg-left bg-no-repeat"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-gray-900/70 via-gray-900/30 to-transparent" />
       <div className="container-page relative py-16">

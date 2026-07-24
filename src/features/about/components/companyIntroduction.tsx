@@ -29,7 +29,7 @@ export default function CompanyOverview() {
           <div>
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-teal-500" />
-              <p className="font-mono text-[15px] font-semibold uppercase tracking-[0.3em] text-teal-500">
+              <p className="text-[15px] font-semibold uppercase tracking-[0.3em] text-teal-500">
                 Company Overview
               </p>
             </div>
@@ -108,7 +108,7 @@ export default function CompanyOverview() {
                           <div className="flex items-center gap-3 bg-teal-500 px-4 py-2.5">
                             {/* <span className="h-px w-8 shrink-0 bg-teal-900" /> */}
           
-                            <span className="font-mono text-[12px] font-semibold uppercase tracking-[0.2em] text-white">
+                            <span className="text-[12px] font-semibold uppercase tracking-[0.2em] text-white">
                               Trusted Manufacturing
                             </span>
                           </div>
@@ -123,7 +123,7 @@ export default function CompanyOverview() {
           
                       {/* Floating number */}
                       {/* <div className="absolute right-4 top-4 flex h-12 w-12 items-center justify-center border border-white/50 bg-white/90 backdrop-blur-sm sm:right-6 sm:top-6 sm:h-14 sm:w-14">
-                        <span className="font-mono text-xs font-bold text-teal-500">
+                        <span className="text-xs font-bold text-teal-500">
                           01
                         </span>
                       </div> */}

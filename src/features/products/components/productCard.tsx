@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -8,7 +9,7 @@ const FALLBACK_IMAGE = '/micromotor/image.png';
 
 interface ProductCardProps {
   product: Product;
-  categorySlug: string;
+  categoryId: string;
   index: number;
 }
 
@@ -18,12 +19,15 @@ const getProductImage = (product: Product): string => {
 
 export default function ProductCard({
   product,
-  categorySlug,
+  categoryId,
   index,
 }: ProductCardProps) {
   const imageUrl = getProductImage(product);
 
-  const productDetailsUrl = `/products/${categorySlug}/${product.id}`;
+  const productDetailsUrl = `/products/${categoryId}/${product.id}`;
+
+  // Show only the first 5 specifications in the product card
+  const overviewFields = product.overview?.slice(0, 5) ?? [];
 
   return (
     <article className="group border border-slate-200 bg-white transition-all duration-300 hover:border-brand-300 hover:shadow-[0_6px_20px_rgba(0,178,173,0.08)]">
@@ -55,7 +59,7 @@ export default function ProductCard({
       <div className="p-4">
         {/* PRODUCT NAME */}
 
-        <h3 className="mt-1 font-mono text-sm font-semibold text-brand-900">
+        <h3 className="mt-1 text-sm font-semibold text-brand-900">
           {product.name}
         </h3>
 
@@ -68,10 +72,11 @@ export default function ProductCard({
 
         {/* ================================================================
             PRODUCT OVERVIEW
+            Only first 5 specifications are displayed
         ================================================================= */}
 
-        {product.overview?.length > 0 && (
-          <ProductOverview fields={product.overview} />
+        {overviewFields.length > 0 && (
+          <ProductOverview fields={overviewFields} />
         )}
 
         {/* ================================================================
@@ -102,6 +107,29 @@ export default function ProductCard({
         </Link>
       </div>
     </article>
+  );
+}
+
+interface ProductCardGridProps {
+  products: Product[];
+  categoryId: string;
+}
+
+export function ProductCardGrid({
+  products,
+  categoryId,
+}: ProductCardGridProps) {
+  return (
+    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {products.map((product, index) => (
+        <ProductCard
+          key={product.id}
+          product={product}
+          categoryId={categoryId}
+          index={index}
+        />
+      ))}
+    </div>
   );
 }
 
@@ -139,7 +167,7 @@ function ProductOverview({
               </span>
             </div>
 
-            <p className="mt-0.5 pl-2.5 font-mono text-[11px] font-medium leading-4 text-slate-500">
+            <p className="mt-0.5 pl-2.5 text-[11px] font-medium leading-4 text-slate-500">
               {field.value || '—'}
             </p>
           </div>
